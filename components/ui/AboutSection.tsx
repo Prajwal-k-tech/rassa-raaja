@@ -6,7 +6,7 @@ import ShinyText from './ShinyText';
 
 export default function AboutSection() {
     return (
-        <section id="menu" className="py-32 text-gray-200 relative overflow-hidden">
+        <section id="about" className="py-24 text-gray-200 relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-20 left-10 w-64 h-64 border border-royal-gold/10 rounded-full pointer-events-none" />
             <div className="absolute bottom-20 right-10 w-48 h-48 border border-royal-gold/5 rounded-full pointer-events-none" />
