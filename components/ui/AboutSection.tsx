@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import ShinyText from './ShinyText';
+import signageImg from "@/public/images/ref_signage_new.jpg";
 
 export default function AboutSection() {
     return (
@@ -69,9 +70,10 @@ export default function AboutSection() {
 
                             {/* Actual restaurant image */}
                             <Image
-                                src="/images/ref_signage_new.jpg"
+                                src={signageImg}
                                 alt="Rassa Raaja Restaurant Signage"
                                 fill
+                                placeholder="blur"
                                 className="object-cover"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                             />

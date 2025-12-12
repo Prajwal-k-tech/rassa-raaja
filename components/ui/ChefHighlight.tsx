@@ -4,12 +4,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/legacy/image";
 
+import chef1 from "@/public/assets/images/img1.png";
+import chef2 from "@/public/assets/images/img2.png";
+import chef3 from "@/public/assets/images/img3.png";
+
 const chefs = [
     {
         id: 1,
         name: "Vikram Rathore",
         role: "Executive Head Chef",
-        image: "/assets/images/chef-1.jpg", // Placeholder
+        image: chef1,
         signature: "Royal Lamb Raan",
         description: "With over 20 years in royal kitchens, Chef Vikram brings the lost recipes of Rajasthan to your plate.",
     },
@@ -17,7 +21,7 @@ const chefs = [
         id: 2,
         name: "Ananya Singh",
         role: "Pastry Chef",
-        image: "/assets/images/chef-2.jpg", // Placeholder
+        image: chef2,
         signature: "Saffron Rose Kulfi",
         description: "Master of sweetness, designing desserts that look like jewelry and taste like heaven.",
     },
@@ -25,7 +29,7 @@ const chefs = [
         id: 3,
         name: "Arjun Mehta",
         role: "Sous Chef",
-        image: "/assets/images/chef-3.jpg", // Placeholder
+        image: chef3,
         signature: "Smoked Dal Bukhara",
         description: "The fire master, controlling the tandoor with precision to create smoky perfection.",
     },

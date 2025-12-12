@@ -5,13 +5,20 @@ import Image from 'next/image';
 import { useState, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
+import imgThali from "@/public/images/gallery/premium_royal_thali.png";
+import imgRassa from "@/public/images/gallery/premium_mutton_rassa.png";
+import imgBiryani from "@/public/images/gallery/premium_mutton_biryani.png";
+import imgTandoori from "@/public/images/gallery/premium_chicken_tandoori.png";
+import imgPaneer from "@/public/images/gallery/premium_paneer_masala.png";
+import imgAmbiance from "@/public/images/ref_ambiance.png";
+
 const images = [
-    { src: '/images/gallery/premium_royal_thali.png', alt: 'Grand Royal Thali Feast' },
-    { src: '/images/gallery/premium_mutton_rassa.png', alt: 'Signature Mutton Rassa' },
-    { src: '/images/gallery/premium_mutton_biryani.png', alt: 'Hyderabadi Dum Biryani' },
-    { src: '/images/gallery/premium_chicken_tandoori.png', alt: 'Tandoori Platter' },
-    { src: '/images/gallery/premium_paneer_masala.png', alt: 'Paneer Butter Masala' },
-    { src: '/images/ref_ambiance.png', alt: 'Rassa Raaja Ambiance' },
+    { src: imgThali, alt: 'Grand Royal Thali Feast' },
+    { src: imgRassa, alt: 'Signature Mutton Rassa' },
+    { src: imgBiryani, alt: 'Hyderabadi Dum Biryani' },
+    { src: imgTandoori, alt: 'Tandoori Platter' },
+    { src: imgPaneer, alt: 'Paneer Butter Masala' },
+    { src: imgAmbiance, alt: 'Rassa Raaja Ambiance' },
 ];
 
 export default function Gallery() {

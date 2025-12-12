@@ -4,11 +4,16 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
+import img1 from "@/public/images/gallery/premium_royal_thali.png";
+import img2 from "@/public/images/gallery/premium_mutton_rassa.png";
+import img3 from "@/public/images/gallery/premium_mutton_biryani.png";
+import img4 from "@/public/images/gallery/premium_chicken_tandoori.png";
+
 const images = [
-    "/images/gallery/premium_royal_thali.png",
-    "/images/gallery/premium_mutton_rassa.png",
-    "/images/gallery/premium_mutton_biryani.png",
-    "/images/gallery/premium_chicken_tandoori.png",
+    img1,
+    img2,
+    img3,
+    img4,
 ];
 
 export default function HeroCarousel() {

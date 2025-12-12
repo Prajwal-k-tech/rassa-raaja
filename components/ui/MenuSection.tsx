@@ -3,13 +3,16 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
+import imgMutton from "@/public/images/gallery/premium_mutton_rassa.png";
+import imgChicken from "@/public/images/gallery/premium_chicken_tandoori.png";
+import imgBiryani from "@/public/images/gallery/premium_mutton_biryani.png";
 
 const menuCategories = [
     {
         id: 'starters',
         title: 'Mutton Specials', // Changed from starters to emphasize specialty
         tagline: 'Royal Beginnings',
-        image: '/images/gallery/premium_mutton_rassa.png',
+        image: imgMutton,
         items: [
             { name: 'Gavran Mutton Thali', price: '₹450', description: 'Authentic village-style mutton curry cooked on fire wood (Chul), served with Bhakri.' },
             { name: 'Mutton Sukka', price: '₹380', description: 'Dry spicy mutton preparation with rich Maharashtrian spices.' },
@@ -21,7 +24,7 @@ const menuCategories = [
         id: 'main',
         title: 'Chicken & Vegetarian',
         tagline: 'Feast of Kings',
-        image: '/images/gallery/premium_chicken_tandoori.png',
+        image: imgChicken,
         items: [
             { name: 'Gavran Chicken Thali', price: '₹380', description: 'Country chicken curry served with Indrayani rice and Jowar Bhakri.' },
             { name: 'Baingan Masala', price: '₹240', description: 'Stuffed eggplants in a nutty, spicy peanut gravy.' },
@@ -33,7 +36,7 @@ const menuCategories = [
         id: 'breads',
         title: 'Breads & Rice',
         tagline: 'Perfect Pairings',
-        image: '/images/gallery/premium_mutton_biryani.png',
+        image: imgBiryani,
         items: [
             { name: 'Jowar Bhakri', price: '₹40', description: 'Traditional sorghum flatbread, handmade and roasted on open fire.' },
             { name: 'Bajra Bhakri', price: '₹40', description: 'Pearl millet flatbread, best paired with spicy rassa.' },
