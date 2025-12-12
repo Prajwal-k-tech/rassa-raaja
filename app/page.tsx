@@ -23,26 +23,40 @@ export default function Home() {
 
       <Hero />
 
-      <div className="relative z-20 bg-dark-bg">
+      {/* About Section: Dark Surface (#111111) */}
+      <div className="relative z-20 bg-dark-surface">
         <AboutSection />
-        <SectionSeparator position="bottom" color="#111111" height="120px" stroke="rgba(212, 175, 55, 0.3)" />
+        {/* Transition to Menu (Dark BG #0a0a0a) */}
+        <SectionSeparator position="bottom" color="#0a0a0a" height="120px" variant="deep" />
       </div>
 
-      <div className="relative z-10 bg-dark-surface pt-20">
+      {/* Menu Section: Dark BG (#0a0a0a) */}
+      <div className="relative z-10 bg-dark-bg pt-20">
         <MenuSection />
-        <SectionSeparator position="bottom" color="#0a0a0a" height="120px" stroke="rgba(212, 175, 55, 0.3)" />
+        {/* Transition to Chef (Dark Surface #111111) */}
+        <SectionSeparator position="bottom" color="#111111" height="150px" variant="asymmetrical" />
       </div>
 
-      <div className="relative z-20 bg-dark-bg pt-20">
+      {/* Chef Section: Dark Surface (#111111) */}
+      <div className="relative z-20 bg-dark-surface pt-20">
         <ChefHighlight />
+        {/* Transition to Gallery (Dark BG #0a0a0a) */}
+        <SectionSeparator position="bottom" color="#0a0a0a" height="120px" variant="gentle" />
       </div>
 
+      {/* Gallery Section: Dark BG (#0a0a0a) */}
       <div className="relative z-20 bg-dark-bg pb-20">
         <Gallery />
-        <SectionSeparator position="bottom" color="#0a0a0a" height="120px" />
+        {/* Transition to Booking/Footer (Black #000000) ?? Footer is black. Booking is in this block? 
+            BookingForm is next. Let's wrap BookingForm in generic black or keep it here.
+        */}
+        <SectionSeparator position="bottom" color="#111111" height="120px" variant="deep" />
       </div>
 
-      <div className="relative z-10 bg-dark-bg pt-10">
+      {/* Booking Form: Dark Surface (#111111) to differentiate from Gallery and match Footer transition? 
+          Actually Footer is Black. Let's make Booking Surface.
+      */}
+      <div className="relative z-10 bg-dark-surface pt-10">
         <BookingForm />
       </div>
 

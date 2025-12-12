@@ -5,20 +5,24 @@ interface SectionSeparatorProps {
     color?: string;
     height?: string;
     className?: string;
-    stroke?: string;
-    strokeWidth?: number;
+    variant?: 'gentle' | 'deep' | 'asymmetrical';
 }
 
 const SectionSeparator: React.FC<SectionSeparatorProps> = ({
     position = 'bottom',
     color = '#0a0a0a',
-    height = '60px',
+    height = '120px',
     className = '',
-    stroke = 'none',
-    strokeWidth = 2
+    variant = 'deep'
 }) => {
-    // Elegant organic wave - deeper curve matching the 1440x320 viewBox
-    const wavePath = "M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z";
+    // Wave paths for 1440x320 viewBox
+    const strategies = {
+        gentle: "M0,96L48,106.7C96,117,192,139,288,144C384,149,480,139,576,128C672,117,768,107,864,112C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+        deep: "M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+        asymmetrical: "M0,192L60,170.7C120,149,240,107,360,112C480,117,600,171,720,197.3C840,224,960,224,1080,202.7C1200,181,1320,139,1380,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+    };
+
+    const wavePath = strategies[variant];
 
     // Invert path for top position if needed, or just rotate the SVG container
     const isTop = position === 'top';
@@ -37,8 +41,6 @@ const SectionSeparator: React.FC<SectionSeparatorProps> = ({
             >
                 <path
                     fill={color}
-                    stroke={stroke}
-                    strokeWidth={strokeWidth}
                     fillOpacity="1"
                     d={wavePath}
                 ></path>

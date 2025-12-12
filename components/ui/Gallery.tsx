@@ -40,7 +40,7 @@ export default function Gallery() {
     }, [selectedIndex]);
 
     return (
-        <section id="gallery" className="py-32 bg-dark-surface relative overflow-hidden">
+        <section id="gallery" className="py-32 relative overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-1/4 left-1/4 w-64 h-64 border border-royal-gold rounded-full" />

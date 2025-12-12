@@ -41,7 +41,7 @@ export default function ChefHighlight() {
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
 
     return (
-        <section ref={containerRef} className="py-24 bg-dark-bg relative overflow-hidden">
+        <section ref={containerRef} className="py-24 relative overflow-hidden">
             {/* Decorative Background */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-royal-gold/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
 

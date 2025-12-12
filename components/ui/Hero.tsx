@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroCarousel from "./HeroCarousel";
 import CircularText from "./CircularText";
+import SectionSeparator from "./SectionSeparator";
 
 export default function Hero() {
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -100,6 +101,8 @@ export default function Hero() {
                     </div>
                 </div>
             </motion.div>
+
+            <SectionSeparator position="bottom" color="#111111" height="100px" variant="gentle" />
         </section>
     );
 }

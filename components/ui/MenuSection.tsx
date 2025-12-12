@@ -48,7 +48,7 @@ export default function MenuSection() {
     const activeData = menuCategories.find(c => c.id === activeCategory)!;
 
     return (
-        <section id="menu" className="py-32 bg-dark-bg text-gray-200 relative overflow-hidden">
+        <section id="menu" className="py-32 text-gray-200 relative overflow-hidden">
             {/* Decorative background element */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-40 bg-gradient-to-b from-transparent via-royal-gold/30 to-transparent" />
 
