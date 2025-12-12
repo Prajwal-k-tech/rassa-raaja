@@ -102,7 +102,7 @@ export default function Hero() {
                 </div>
             </motion.div>
 
-            <SectionSeparator position="bottom" color="#111111" height="100px" variant="gentle" />
+
         </section>
     );
 }
