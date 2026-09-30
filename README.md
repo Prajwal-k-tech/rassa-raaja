@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rassa Raaja
 
-## Getting Started
+A restaurant website prototype built with Next.js, React and TypeScript. It presents a menu, chef profile, gallery and reservation interface with an animated dark visual theme.
 
-First, run the development server:
+## Run locally
+
+Use Node.js 20.9 or newer.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. `npm run build` creates a production build and `npm start` serves it. `npm run lint` runs ESLint.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/page.tsx`: assembles the landing page and footer.
+- `components/ui/`: menu, gallery, booking form, navigation and visual effects.
+- `public/`: static assets.
 
-## Learn More
+## Implemented scope
 
-To learn more about Next.js, take a look at the following resources:
+The repository contains a responsive visual interface, menu presentation, gallery, section navigation and client-side reservation fields. The booking button is a disabled preview: there is no booking backend, persistence, payment flow or confirmation email. Restaurant contact details and social links are sample content. Before adapting it for a real restaurant, supply verified details and connect an actual reservation service.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Next.js 16, React 19, TypeScript, Tailwind CSS 4, Framer Motion, Three.js and React Three Fiber. Dependency versions are recorded in `package-lock.json`.
