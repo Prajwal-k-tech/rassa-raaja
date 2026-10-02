@@ -44,8 +44,8 @@ export default function BookingForm() {
                         </h2>
 
                         <p className="text-gray-400 font-sans leading-relaxed mb-10">
-                            Reserve your royal dining experience. We recommend making reservations
-                            at least 2 days in advance for the best seating options.
+                            Explore the reservation interface in this restaurant website prototype.
+                            This demo does not send or save booking requests.
                         </p>
 
                         <div className="space-y-6">
@@ -202,16 +202,17 @@ export default function BookingForm() {
                                 {/* Submit Button */}
                                 <motion.button
                                     type="button"
+                                    disabled
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     className="w-full mt-8 relative overflow-hidden group py-5 bg-royal-gold text-dark-bg font-display text-base tracking-[0.2em] uppercase transition-all duration-300"
                                 >
-                                    <span className="relative z-10">Request Reservation</span>
+                                    <span className="relative z-10">Reservation Preview</span>
                                     <div className="absolute inset-0 bg-gradient-to-r from-royal-gold-dark to-royal-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </motion.button>
 
                                 <p className="text-center text-gray-600 text-xs font-sans mt-4">
-                                    You will receive a confirmation within 24 hours
+                                    Demo interface only. No reservation is created.
                                 </p>
                             </form>
                         </div>
