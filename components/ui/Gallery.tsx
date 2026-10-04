@@ -2,7 +2,8 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import { useState, useCallback, useEffect, useSyncExternalStore } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import imgThali from "@/public/images/gallery/premium_royal_thali.png";
@@ -21,18 +22,37 @@ const images = [
     { src: imgAmbiance, alt: 'Rassa Raaja Ambiance' },
 ];
 
+const subscribeToNothing = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
+
 export default function Gallery() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const isClient = useSyncExternalStore(subscribeToNothing, getClientSnapshot, getServerSnapshot);
 
     const openLightbox = useCallback((index: number) => {
         setSelectedIndex(index);
-        document.body.style.overflow = 'hidden';
     }, []);
 
     const closeLightbox = useCallback(() => {
         setSelectedIndex(null);
-        document.body.style.overflow = 'unset';
     }, []);
+
+    useEffect(() => {
+        if (selectedIndex === null) return;
+
+        const previousOverflow = document.body.style.overflow;
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') closeLightbox();
+        };
+
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [selectedIndex, closeLightbox]);
 
     const goNext = useCallback(() => {
         if (selectedIndex !== null) {
@@ -47,6 +67,7 @@ export default function Gallery() {
     }, [selectedIndex]);
 
     return (
+        <>
         <section id="gallery" className="py-32 relative overflow-hidden">
             {/* Background decorative elements */}
             <div className="absolute inset-0 opacity-5">
@@ -126,17 +147,20 @@ export default function Gallery() {
                 </div>
             </div>
 
-            {/* Lightbox Modal */}
+        </section>
+        {isClient && createPortal(
             <AnimatePresence>
                 {selectedIndex !== null && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={images[selectedIndex].alt}
+                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center"
                         onClick={closeLightbox}
                     >
-                        {/* Close button */}
                         <button
                             onClick={closeLightbox}
                             className="absolute top-6 right-6 text-white/60 hover:text-royal-gold transition-colors z-50"
@@ -145,7 +169,6 @@ export default function Gallery() {
                             <X size={32} />
                         </button>
 
-                        {/* Navigation */}
                         <button
                             onClick={(e) => { e.stopPropagation(); goPrev(); }}
                             className="absolute left-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-royal-gold transition-colors z-50 p-2"
@@ -161,7 +184,6 @@ export default function Gallery() {
                             <ChevronRight size={40} />
                         </button>
 
-                        {/* Image */}
                         <motion.div
                             key={selectedIndex}
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -181,13 +203,14 @@ export default function Gallery() {
                             />
                         </motion.div>
 
-                        {/* Image counter */}
                         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-500 font-display tracking-[0.3em] text-sm">
                             {selectedIndex + 1} / {images.length}
                         </div>
                     </motion.div>
                 )}
-            </AnimatePresence>
-        </section>
+            </AnimatePresence>,
+            document.body
+        )}
+        </>
     );
 }

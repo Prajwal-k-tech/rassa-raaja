@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. `npm run build` creates a production build and `npm start` serves it. `npm run lint` runs ESLint.
+Open http://localhost:3000. For a local production check, run `npm run build` followed by `npm start`. The GitHub Pages workflow sets its subpath and static-export options automatically; its build artifact is written to `out/`. `npm run lint` runs ESLint.
 
 ## Project structure
 
